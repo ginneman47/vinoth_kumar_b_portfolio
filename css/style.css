@@ -6,7 +6,8 @@
 .r2{inset:23%}
 .r3{inset:31%}
 .center{inset:31%;overflow:hidden}
-.center img{width:100%;height:100%;object-fit:cover;display:block}
+.center img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s ease,filter .35s ease;filter:saturate(.96) contrast(1.02) brightness(.98)}
+.center:hover img{transform:scale(1.04);filter:saturate(1.03) contrast(1.06) brightness(1)}
 .label{top:50%;left:50%;font-size:11px;font-weight:700;white-space:nowrap;transform:rotate(var(--angle)) translateX(var(--orbit-radius)) rotate(calc(-1 * var(--angle))) translate(-50%,-50%);animation:orbit var(--orbit-duration) linear infinite;z-index:2;background:transparent;border:0;padding:0;color:#1f2a20}
 .label span{display:block}
 .l1{top:50%;right:auto;--angle:270deg}
@@ -100,7 +101,8 @@
 .education-section .lang-list{margin-bottom:0}
 .contact-right{display:grid;gap:24px;align-content:start}
 .contact-person{margin:0;border:1px solid #4f623b;overflow:hidden;max-width:430px}
-.contact-person img{display:block;width:100%;height:260px;object-fit:cover;object-position:center top;filter:saturate(.96) contrast(1.02)}
+.contact-person img{display:block;width:100%;height:260px;object-fit:cover;object-position:center top;filter:saturate(.96) contrast(1.02);transition:transform .35s ease,filter .35s ease}
+.contact-person:hover img{transform:scale(1.04);filter:saturate(1.03) contrast(1.06) brightness(1)}
 
 @media(max-width:800px){
 	.education-section .education-grid{grid-template-columns:1fr}
@@ -158,11 +160,13 @@ main>section+section::after{content:"";position:absolute;top:12px;left:50%;trans
 	.line{display:none}
 	.contact-card{border-left:0;border-top:1px solid #50663b;padding:28px 0 0}
 	.contact-person,.contact-person img{min-height:380px}
-	.skills-constellation{height:700px}
+	.tools-section{overflow:visible}
+	.skills-constellation{height:720px;margin-top:48px}
 	.skills-core{width:170px}
 	.skills-core strong{font-size:54px}
 	.skills-core span{font-size:50px}
-	.skill-orbit span{font-size:11px;padding:6px 10px}
+	.skill-orbit span{left:calc(var(--r) * .66);font-size:11px;padding:6px 10px}
+	.skill-orbit::before{width:calc((var(--r) * .66) - 28px)}
 }
 
 @media(max-width:700px){
@@ -186,12 +190,12 @@ main>section+section::after{content:"";position:absolute;top:12px;left:50%;trans
 	.project,.education-section .edu-card{padding:20px}
 	.project-content label,.timeline label{font-size:9px}
 	.project footer,.project-meta{gap:8px;flex-wrap:wrap}
-	.skills-constellation{height:560px}
+	.skills-constellation{height:600px;margin-top:42px}
 	.skills-core{width:138px}
 	.skills-core strong{font-size:41px}
 	.skills-core span{font-size:36px}
-	.skill-orbit span{font-size:9px;padding:5px 8px;letter-spacing:.1em}
-	.skill-orbit::before{width:calc(var(--r) - 34px)}
+	.skill-orbit span{left:calc(var(--r) * .56);font-size:9px;padding:5px 8px;letter-spacing:.1em}
+	.skill-orbit::before{width:calc((var(--r) * .56) - 24px)}
 	.contact-section{padding:78px 0}
 	.contact-section h2{font-size:clamp(30px,8.5vw,44px);margin:18px 0}
 	.contact-person,.contact-person img{min-height:300px;height:300px}
@@ -211,10 +215,12 @@ main>section+section::after{content:"";position:absolute;top:12px;left:50%;trans
 	.chips span,.tool-list span{font-size:9px;padding:6px 8px}
 	.education-section .edu-item h4{font-size:16px}
 	.contact-card strong{font-size:15px}
-	.skills-constellation{height:520px}
+	.skills-constellation{height:560px;margin-top:36px}
 	.skills-core{width:122px}
 	.skills-core strong{font-size:36px}
 	.skills-core span{font-size:32px}
+	.skill-orbit span{left:calc(var(--r) * .5)}
+	.skill-orbit::before{width:calc((var(--r) * .5) - 20px)}
 	.contact-person,.contact-person img{min-height:250px;height:250px}
 	main>section+section::before{width:calc(100% - 20px)}
 }
@@ -316,6 +322,6 @@ footer{color:#6b726b;border-top:1px solid var(--line)}
 .stats>div:last-child strong span{font-size:22px;line-height:1}
 
 /* Darker VB + section heading emphasis */
-.logo span{color:#3e5741;border-color:#3e5741}
+.logo span{color:#A8E35A;border-color:#A8E35A;font-family:"Space Grotesk";font-weight:700;font-size:15px;letter-spacing:-.01em}
 .section h2,.contact-section h2{color:#1a241f}
 
